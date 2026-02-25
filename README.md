@@ -72,14 +72,17 @@ input/imdb_ids.txt
 ## Running the Pipeline
 
 1. Start the MySQL container:
+```   
    docker compose up -d
-
+```
 2. Add IMDb IDs (one per line) to:
+```   
    input/imdb_ids.txt
-
+```
 3. Run the pipeline:
+```
    python -m src.etl.pipeline
-
+```
 Example output:
 ETL success. run_id=... extracted=5 loaded=5
 
@@ -104,4 +107,16 @@ ON DUPLICATE KEY UPDATE during load.
 Running the pipeline multiple times does not create duplicate records.
 Existing rows are updated if data changes.
 
+## Stopping and Resetting
+
+Stop containers:
+
+```
+docker compose down
+```
+Stop and remove database volume (delete all stored data):
+
+```
+docker compose down -v
+```
 ##### -GLConde
