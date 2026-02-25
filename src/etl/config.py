@@ -5,7 +5,6 @@ import os
 
 from dotenv import load_dotenv
 
-
 @dataclass(frozen=True)
 class Settings:
     omdb_api_key: str
